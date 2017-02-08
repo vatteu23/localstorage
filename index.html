@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Html file</title>
+	<link rel="stylesheet" type="text/css" href="C:\Users\a1780468\Desktop\udemy\style.css">
+	<script type="text/javascript">
+		function getNote() {
+			// body...
+			if (localStorage.getItem('note')) {
+			var note = localStorage.getItem('note');
+
+		}else{
+			var note = 'Go a head and type';
+		}
+
+		document.getElementById('note').innerHTML = note;
+
+		}
+
+
+
+		function saveNote(id){
+
+			var note = document.getElementById('note').innerHTML;
+			localStorage.setItem('note',note);
+		}
+	
+		function clearNote() {
+
+			clear: localStorage.clear();
+			return false;
+			// body...
+		}
+
+	</script>
+
+
+	<style type="text/css">
+		
+	body{
+		font-family: tahoma;
+		line-height: 1.6em;
+		background: #f4f4f4;
+	}
+
+	header, footer{
+
+text-align: center;
+
+	}
+
+
+	#container{
+		width: 400px;
+		margin: 50px auto;
+		background: #FFFFA5;
+		overflow: hidden;
+		padding: 30px;
+
+
+	}
+
+
+	.clear{
+		text-decoration: none;
+		color: #fff;
+		background: #333;
+		padding: 10px;
+
+	}
+	</style>
+</head>
+<body>
+<header>
+	<h1>MyNote</h1>
+
+</header>
+
+<section id="container">
+	<div id="note" contenteditable="true" onkeyup="saveNote(this.id)"></div>
+
+</section>
+
+
+<footer>
+	
+<div>
+	<a href="" onclick="javascript:clearNote();" class="clear"> clear note </a>
+
+</div>
+
+</footer>
+<script >
+	getNote();
+</script>
+</body>
+</html>
